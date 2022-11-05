@@ -86,12 +86,12 @@ spec:
             memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
-          value: dns
+          #value: dns
           # If your cluster config does not include a dns service, then to
           # instead access an environment variable to find the master
           # service's host, comment out the 'value: dns' line above, and
           # uncomment the line below:
-          # value: env
+          value: env
         ports:
         - containerPort: 6379
 ---
@@ -119,7 +119,7 @@ metadata:
 spec:
   # if your cluster supports it, uncomment the following to automatically create
   # an external load-balanced IP for the frontend service.
-  # type: LoadBalancer
+  type: LoadBalancer
   ports:
   - port: 80
   selector:
@@ -151,11 +151,11 @@ spec:
             memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
-          value: dns
+          #value: dns
           # If your cluster config does not include a dns service, then to
           # instead access environment variables to find service host
           # info, comment out the 'value: dns' line above, and uncomment the
           # line below:
-          # value: env
+          value: env
         ports:
         - containerPort: 80
